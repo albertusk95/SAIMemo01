@@ -62,7 +62,9 @@ class admin extends CI_Controller {
 		}
 		elseif($e_user_id == 'add'){
 
-			$this->form_validation->set_rules('username', 'Username','required|alpha_numeric|is_unique[users.username]');
+			$this->form_validation->set_rules('firstname', 'First name', 'required');
+			$this->form_validation->set_rules('lastname', 'Last name', 'required');
+			$this->form_validation->set_rules('username', 'Username','required|is_unique[users.user_email]');
 			$this->form_validation->set_rules('password', 'Password', 'required|min_length[6]');
 
 			// Jika validasi berhasil
@@ -70,11 +72,14 @@ class admin extends CI_Controller {
 			{
 				// Ambil data dari model
 				$user = array(
+					'firstname' => $this->input->post('firstname'),
+					'lastname' => $this->input->post('lastname'),
 					'username' => $this->input->post('username'),
 					'password' => $this->input->post('password'),
 				);
+				
 				// Jika berhasil register, redirect ke halaman login
-				if($this->Userauth_model->register_admin($user)){
+				if($this->Userauth_model->register_adduser($user)){
 					$created_user_id = $this->Userauth_model->check_user($user['username']);
 					$this->Log_model->add_log($user_id, 'auth', 'add user', $created_user_id.'('.$user['username'].')');
 					$this->Memo_model->create_folder('', '', $this->Userauth_model->check_user($user['username']));
@@ -101,7 +106,7 @@ class admin extends CI_Controller {
 			}
 			if($this->input->get('edit')){
 				if($this->input->post('modify') == 'username'){
-					$this->form_validation->set_rules('username', 'Username','required|alpha_numeric|is_unique[users.username]');
+					$this->form_validation->set_rules('username', 'Username','required|is_unique[users.user_email]');
 					if($this->form_validation->run()){
 						$modify_username = $this->input->post('username');
 						if($this->Userauth_model->update_user($e_user_id, 'user_email', $modify_username)){
@@ -114,11 +119,19 @@ class admin extends CI_Controller {
 				else if($this->input->post('modify')=='password'){
 					$this->form_validation->set_rules('password', 'Password', 'required|min_length[6]');
 					if($this->form_validation->run()){
+						
 						$modify_password = $this->input->post('password');
-						if($this->Userauth_model->update_user($e_user_id, 'user_password', sha1($modify_password))){
+						
+						// enkripsi password baru dengan prosedur create_hash milik library Password 
+						$this->load->library('password');                                 
+						$hashed = $this->password->create_hash($modify_password);                
+						$modify_password = $hashed;
+						
+						if($this->Userauth_model->update_user($e_user_id, 'user_password', $modify_password)){
 							$this->Log_model->add_log($user_id, 'auth', 'edit password', $e_user_id.'('.$username.')');
 							redirect(site_url('admin/users' . '?password_success=1&username='.$username));
 						}
+						
 					}
 				}
 			}
@@ -153,10 +166,11 @@ class admin extends CI_Controller {
 		$asc = isset($_GET['asc']) ? $_GET['asc'] : 1;
 
 		$users = $this->Userauth_model->list_user(null,null,$sort,($asc)?'asc':'desc');
+		/*
 		foreach ($users as $key => $user) {
 			$user->date_created = $this->_date_modified($user->date_created);
 		}
-
+		*/
 		$header_data = array('title' => 'SAIMemo | User Management');
 		$this->load->view('simplecloud/Admin/header', $header_data);
 

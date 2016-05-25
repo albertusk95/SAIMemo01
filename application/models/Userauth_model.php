@@ -41,7 +41,7 @@ class Userauth_model extends CI_Model {
 
 			// Jika ditemukan
 			if($q->num_rows() > 0){
-				return $q->row()->username;
+				return $q->row()->user_email;
 			}
 
 			// Jika tidak ditemukan
@@ -257,7 +257,7 @@ class Userauth_model extends CI_Model {
 				
 				//cek kesamaan password 
 				$this->load->library('password');
-				if(!$this->password->validate_password($q->user_password, $old_password)){
+				if(!$this->password->validate_password($old_password, $q->row()->user_password)){
 					error_log('Unsuccessful change password attempt');
 					return false; 
 				}
@@ -278,6 +278,35 @@ class Userauth_model extends CI_Model {
 				->where('id', $id)
 				->delete('users');
 			return true;
+		}
+		
+		public function register_adduser($usr_data) {
+			
+			//enkripsi password 
+			$this->load->library('password');                 
+            $hashed = $this->password->create_hash($usr_data['password']);                
+            $usr_data['password'] = $hashed;
+			
+			//info tambahan
+			$usr_data['role'] = 'subscriber';
+			$usr_data['status'] = 'approved';
+			
+			// Input data ke database
+			$data_in = array (
+						'user_email' => $usr_data['username'],
+						'user_firstname' => $usr_data['firstname'],
+						'user_lastname' => $usr_data['lastname'],
+						'user_role' => $usr_data['role'],
+						'user_password' => $usr_data['password'],
+						'user_status' => $usr_data['status']
+					);
+			
+			$this->db->insert('users', $data_in);
+
+			// Cek jika data berhasil dimasukkan
+			if($this->check_user($usr_data['username']) !== false) return true;
+			return false;
+			
 		}
 
 }

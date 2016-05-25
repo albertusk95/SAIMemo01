@@ -23,7 +23,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<div class="form-group">
 						<label for="username">Username</label>
 						<input type="text" class="form-control" id="username" name="username" placeholder="Username" value="<?= $username ?>" required />
-						<small><i>Alpha-numeric</i></small>
 					</div>
 					<button type="submit" id="modify-username-btn" class="btn btn-success btn-bg" disabled>Modify</button>
 				</form>

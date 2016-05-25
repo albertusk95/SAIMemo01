@@ -12,13 +12,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		  <div class="panel-body">
 				<?php echo form_open(site_url('admin/user/add')); ?>
 				<div class="form-group">
-					<label for="username">Username</label>
-					<input type="text" class="form-control" id="username" name="username" placeholder="Username" required />
-					<small><i>Alpha-numeric</i></small>
+					<label for="firstname">Firstname</label>
+					<input type="text" class="form-control" id="firstname" name="firstname" placeholder="First name..." required />
+				</div>
+				<div class="form-group">
+					<label for="lastname">Lastname</label>
+					<input type="text" class="form-control" id="lastname" name="lastname" placeholder="Last name..." required />
+				</div>
+				<div class="form-group">
+					<label for="username">Email</label>
+					<input type="text" class="form-control" id="username" name="username" placeholder="Email..." required />
 				</div>
 				<div id="password-group" class="form-group">
 					<label for="password">Password</label>
-					<input type="password" class="form-control" id="password" name="password" placeholder="Password" required />
+					<input type="password" class="form-control" id="password" name="password" placeholder="Password..." required />
 					<small><i>Password length min. 6 characters</i></small>
 				</div>
 				<div id="re-password-group" class="form-group">

@@ -286,7 +286,8 @@ class user_auth extends CI_Controller {
 			
 			$user_id = $this->session->userdata('id');
 			$username = $this->session->userdata('user_email');
-			if($this->input->get('edit')){
+			if($this->input->get('edit')) {
+				
 				if($this->input->post('modify')=='username'){
 					$this->form_validation->set_rules('username', 'Username','required|is_unique[users.user_email]');
 					if($this->form_validation->run()){
@@ -301,24 +302,25 @@ class user_auth extends CI_Controller {
 					redirect(site_url('admin/users/' . $user_id));
 				}
 				else if($this->input->post('modify')=='password'){
+					
 					$this->form_validation->set_rules('password', 'Password', 'required|min_length[6]');
 					if($this->form_validation->run()){
+						
 						$old_password = $this->input->post('old-password');
 						$modify_password = $this->input->post('password');
 
 						// enkripsi password lama dan baru dengan prosedur 
 						// create_hash milik library Password 
 						$this->load->library('password');                                 
-						$hashed = $this->password->create_hash($old_password);                
-						$old_password = $hashed;
-						$hashed = $this->password->create_hash($modify_password);                
-						$modify_password = $hashed;
 						
-						//if($this->Userauth_model->change_password($user_id, sha1($old_password), sha1($modify_password))){
+						$hashed_mod = $this->password->create_hash($modify_password);                
+						$modify_password = $hashed_mod;
+							
 						if($this->Userauth_model->change_password($user_id, $old_password, $modify_password)){
 							$this->Log_model->add_log($user_id, 'auth', 'edit password', $user_id.'('.$username.')');
 							redirect(site_url('user_auth/profile' . '?password_success=1&username='.$username));
-						}
+						} 
+						
 					}
 				}
 			}

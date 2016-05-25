@@ -12,21 +12,23 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<?php endif ?>
 				</th>
 				<th class="column-username">
-					<a href="<?='?sort=username'.($sort=='username'?($asc==1 ?'&asc=0':'&asc=1'):'')?>">Username</a>
+					<a href="<?='?sort=username'.($sort=='user_email'?($asc==1 ?'&asc=0':'&asc=1'):'')?>">Username</a>
 					<?php if($sort=='username'): ?>
 					<span class="glyphicon glyphicon-chevron-<?=$asc==1 ?'up':'down'?>"></span>
 					<?php endif ?>
 				</th>
 				<th></th>
+				<!--
 				<th class="column-date-created hidden-xs">
-					<a href="<?='?sort=date_created'.($sort=='date_created'?($asc==1 ?'&asc=0':'&asc=1'):'')?>">Created</a>
-					<?php if($sort=='date_created'): ?>
-					<span class="glyphicon glyphicon-chevron-<?=$asc==1 ?'up':'down'?>"></span>
-					<?php endif ?>
+					<a href="<?//='?sort=date_created'.($sort=='date_created'?($asc==1 ?'&asc=0':'&asc=1'):'')?>">Created</a>
+					<?php //if($sort=='date_created'): ?>
+					<span class="glyphicon glyphicon-chevron-<?//=$asc==1 ?'up':'down'?>"></span>
+					<?php //endif ?>
 				</th>
+				-->
 				<th class="column-admin" nowrap="nowrap">
-					<a href="<?='?sort=is_admin'.($sort=='is_admin'?($asc==1 ?'&asc=0':'&asc=1'):'')?>">Admin</a>
-					<?php if($sort=='is_admin'): ?>
+					<a href="<?='?sort=user_role'.($sort=='user_role'?($asc==1 ?'&asc=0':'&asc=1'):'')?>">Admin</a>
+					<?php if($sort=='user_role'): ?>
 					<span class="glyphicon glyphicon-chevron-<?=$asc==1 ?'up':'down'?>"></span>
 					<?php endif ?>
 				</th>
@@ -36,20 +38,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<?php foreach ($users as $key => $user): ?>
 			<tr class="user-content">
 				<td class="content-id"><?= $user->id ?></td>
-				<td class="content-username"><?= $user->username ?></td>
+				<td class="content-username"><?= $user->user_email ?></td>
 				<td class="content-actions">
-				<?php if($this->session->userdata('user_id')!=$user->id||!($user->is_admin)): ?>
+				<?php if($this->session->userdata('id') != $user->id || ($user->user_role != 'admin')): ?>
 					<a href="<?= site_url('admin/user/' . $user->id) ?>" class="btn visible-xs-inline" rel="tooltip-left" title="Edit"><span class="glyphicon glyphicon-pencil"></span></a>
-					<a href="javascript:void(0)" data-username="<?= $user->username ?>" data-url="<?= site_url('admin/user/' . $user->id) . '?delete=1' ?>" class="btn visible-xs-inline" rel="tooltip-left" title="Delete" data-toggle="modal" data-target="#delete-modal"><span class="glyphicon glyphicon-trash"></span></a>
+					<a href="javascript:void(0)" data-username="<?= $user->user_email ?>" data-url="<?= site_url('admin/user/' . $user->id) . '?delete=1' ?>" class="btn visible-xs-inline" rel="tooltip-left" title="Delete" data-toggle="modal" data-target="#delete-modal"><span class="glyphicon glyphicon-trash"></span></a>
 				<?php endif ?>
 				</td>
-				<td class="content-date-created hidden-xs"><?= $user->date_created ?></td>
+				<!--
+				<td class="content-date-created hidden-xs"><?//= $user->date_created ?></td>
+				-->
 				<td class="content-admin">
-					<span class="glyphicon glyphicon-<?= ($user->is_admin)?'ok':'remove'?>"></span>
-					<?php if($this->session->userdata('user_id')!=$user->id) if($user->is_admin): ?>
-						<a href="javascript:void(0)" data-username="<?= $user->username ?>" data-url="<?= site_url('admin/user/' . $user->id) . '?demote=1' ?>" class="btn visible-xs-inline" rel="tooltip-left" title="Demote" data-toggle="modal" data-target="#demote-modal"><span class="glyphicon glyphicon-arrow-down"></span></a>
+					<span class="glyphicon glyphicon-<?= ($user->user_role == 'admin') ?'ok':'remove'?>"></span>
+					<?php if($this->session->userdata('id')!=$user->id) if ($user->user_role == 'admin'): ?>
+						<a href="javascript:void(0)" data-username="<?= $user->user_email ?>" data-url="<?= site_url('admin/user/' . $user->id) . '?demote=1' ?>" class="btn visible-xs-inline" rel="tooltip-left" title="Demote" data-toggle="modal" data-target="#demote-modal"><span class="glyphicon glyphicon-arrow-down"></span></a>
 					<?php else: ?>
-						<a href="javascript:void(0)" data-username="<?= $user->username ?>" data-url="<?= site_url('admin/user/' . $user->id) . '?promote=1' ?>" class="btn visible-xs-inline" rel="tooltip-left" title="Promote" data-toggle="modal" data-target="#promote-modal"><span class="glyphicon glyphicon-arrow-up"></span></a>
+						<a href="javascript:void(0)" data-username="<?= $user->user_email ?>" data-url="<?= site_url('admin/user/' . $user->id) . '?promote=1' ?>" class="btn visible-xs-inline" rel="tooltip-left" title="Promote" data-toggle="modal" data-target="#promote-modal"><span class="glyphicon glyphicon-arrow-up"></span></a>
 					<?php endif ?>
 				</td>
 			</tr>
