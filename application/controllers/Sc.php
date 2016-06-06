@@ -6,13 +6,19 @@ class Sc extends CI_Controller {
 		
 				parent::__construct();
 				$this->load->helper('url');
-		
+				
 		}
 		
 		public function schome() {
 			
 				$this->load->view('simplecloud/schome');
 		
+		}
+		
+		public function signup_schome() {
+			
+				$this->load->view('simplecloud/signup');
+			
 		}
 		
 }

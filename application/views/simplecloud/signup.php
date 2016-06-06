@@ -15,6 +15,13 @@
 		<link rel="stylesheet" href="<?php echo base_url(); ?>/assets/login_register/css/form-elements.css">
         <link rel="stylesheet" href="<?php echo base_url(); ?>/assets/login_register/css/style.css">
 		<link rel="stylesheet" href="<?php echo base_url(); ?>/assets/css/main.css">
+		
+		<style>
+			body {
+				background-color: #34495e;
+			}
+		</style>
+		
     </head>
 
 	<div id="alert">
@@ -33,8 +40,7 @@
 		<?php endif ?>
 	</div>
 	
-    <body background="<?php echo base_url(); ?>/assets/login_register/img/backgrounds/undersea02.jpg">
-		
+	<body>
         <!-- Top content -->
         <div class="top-content">
         	
@@ -63,7 +69,7 @@
 	                            		<p>Enter username and password to log on:</p>
 	                        		</div>
 	                        		<div class="form-top-right">
-	                        			<i class="fa fa-lock"></i>
+	                        			<i class="fa fa-sign-in"></i>
 	                        		</div>
 	                            </div>
 	                            <div class="form-bottom">
@@ -108,7 +114,7 @@
 	                            		<p>Enter your account information:</p>
 	                        		</div>
 	                        		<div class="form-top-right">
-	                        			<i class="fa fa-pencil"></i>
+	                        			<i class="fa fa-registered"></i>
 	                        		</div>
 	                            </div>
 	                            <div class="form-bottom">

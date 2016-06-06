@@ -15,10 +15,15 @@
 		<link rel="stylesheet" href="<?php echo base_url(); ?>/assets/login_register/css/form-elements.css">
         <link rel="stylesheet" href="<?php echo base_url(); ?>/assets/login_register/css/style.css">
 		
+		<style>
+			body {
+				background-color: #34495e;
+			}
+		</style>
+		
     </head>
 
-    <body background="<?php echo base_url(); ?>/assets/login_register/img/backgrounds/undersea02.jpg">
-	
+    <body>
 		<!-- Top content -->
         <div class="top-content">
         	
@@ -48,7 +53,7 @@
 	                        			<h3>Forgot password</h3>
 	                        		</div>
 	                        		<div class="form-top-right">
-	                        			<i class="fa fa-pencil"></i>
+	                        			<i class="fa fa-refresh"></i>
 	                        		</div>
 	                            </div>
 	                            <div class="form-bottom">

@@ -19,7 +19,7 @@ class user_auth extends CI_Controller {
 				$this->status = $this->config->item('status'); 
 				$this->roles = $this->config->item('roles');
 		}
-	
+		
 		// signup tanpa parameter 
 		public function signup() {
 			/**
@@ -30,6 +30,7 @@ class user_auth extends CI_Controller {
 				if($this->session->userdata('id') !== NULL) {
 						
 					redirect(site_url('memo'));
+					
 				}
 			
 				$this->form_validation->set_rules('form-first-name', 'First name', 'required');

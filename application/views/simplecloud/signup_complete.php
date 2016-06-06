@@ -15,10 +15,15 @@
 		<link rel="stylesheet" href="<?php echo base_url(); ?>/assets/login_register/css/form-elements.css">
         <link rel="stylesheet" href="<?php echo base_url(); ?>/assets/login_register/css/style.css">
 		
+		<style>
+			body {
+				background-color: #34495e;
+			}
+		</style>
+		
     </head>
 
-    <body background="<?php echo base_url(); ?>/assets/login_register/img/backgrounds/undersea02.jpg">
-	
+    <body>
 		<!-- Top content -->
         <div class="top-content">
         	
@@ -49,19 +54,19 @@
 	                        			<h3>Complete the registration</h3>
 	                        		</div>
 	                        		<div class="form-top-right">
-	                        			<i class="fa fa-pencil"></i>
+	                        			<i class="fa fa-registered"></i>
 	                        		</div>
 	                            </div>
 	                            <div class="form-bottom">
 				                    <form role="form" action="<?php echo site_url('user_auth/signup_complete/token/'.$token); ?>" method="post" class="registration-form">
 				                    	<div class="form-group">
 				                    		<label class="sr-only" for="password">Password</label>
-				                        	<input type="text" name="password" value="<?php echo set_value('password'); ?>" placeholder="Enter a password..." class="password form-control" id="password">
+				                        	<input type="password" name="password" value="<?php echo set_value('password'); ?>" placeholder="Enter a password..." class="password form-control" id="password">
 											<font color="red"><?php echo form_error('password'); ?></font> 
 										</div>
 				                        <div class="form-group">
 				                        	<label class="sr-only" for="passconf">Confirm password</label>
-				                        	<input type="text" name="passconf" value="<?php echo set_value('passconf'); ?>" placeholder="Confirm password..." class="passconf form-control" id="passconf">
+				                        	<input type="password" name="passconf" value="<?php echo set_value('passconf'); ?>" placeholder="Confirm password..." class="passconf form-control" id="passconf">
 											<font color="red"><?php echo form_error('passconf'); ?></font> 
 										</div>
 				                        <?php echo form_hidden('user_id', $user_id);?>
