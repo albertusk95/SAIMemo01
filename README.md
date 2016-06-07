@@ -8,7 +8,7 @@ Actual type => Cloud storage
 
 ---
 
-### *General Info*
+### General Info
 
 Programming specs:
   - PHP Framework: Codeigniter
@@ -27,9 +27,9 @@ Additional plug-in:
 
 ---
 
-### *Improved features*
+### Improved features
 
-*User authentication*
+**User authentication**
 
 _Login_
   - Forgot password
@@ -51,7 +51,7 @@ _Register_
               - Only valid token can accessed this stage
           - User's status for this stage: *approved*
           
-*Superadmin & Admin*
+**Superadmin & Admin**
 
 _Superadmin_
   - Albertus Kelvin
@@ -76,7 +76,7 @@ _Admin_
       - Demote all users from becoming an Admin, except Superadmin
       - Edit Admin's profile
 
-*User*
+**User**
 
 _Status: pending_
   - User can't access the memo till he/she use the valid token for creating a new password
@@ -93,11 +93,11 @@ _Status: approved_
       - Delete a file
       - Sort the list of files according to 'Name', 'Modified time', and 'Size'
 
-*Session*
+**Session**
 
 This version of SAIMemo uses session to integrate the experience's flow among authentication, memo, and SAIMemo's home
 
-*Log activity*
+**Log activity**
 
   - Can only be accessed by Superadmin and Admin
   - Show the history of activities of SAIMemo
@@ -109,7 +109,7 @@ This version of SAIMemo uses session to integrate the experience's flow among au
 
 ---
 
-### *Next development*
+### Next development
 
 Storing location:
   - Current: local
@@ -117,7 +117,7 @@ Storing location:
 
 ---
 
-*Albertus Kelvin*
-*Institut Teknologi Bandung*
-*Bandung, Indonesia*
+**Albertus Kelvin** </br>
+**Institut Teknologi Bandung** </br>
+**Bandung, Indonesia**
 
