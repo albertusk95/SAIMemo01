@@ -29,21 +29,15 @@
 	<link rel="stylesheet" href="<?php echo base_url(); ?>/assets/css/magnific-popup.css"> 
 	
 	<script src="<?php echo base_url(); ?>/assets/js/modernizr-2.8.3.min.js"></script>  <!-- Modernizr /-->
-	
+		
 </head>
 
 <body id="home">
 
 	<!-- Body background (start point) diatur oleh general.css bagian .intro-header -->
-
-	<!-- Preloader -->
-	<div id="preloader">
-		<div id="status"></div>
-	</div>
 	
 	<!-- FullScreen -->
     <div class="intro-header">
-		
 		
 		<div id="twopic">
 			<img class="bottom" src="<?php echo base_url(); ?>/assets/img/intro/startpoint.jpg" />
@@ -152,19 +146,13 @@
                 <div class="col-sm-6 wow fadeInLeftBig">
 					 <div id="owl-demo-1" class="owl-carousel">
 						<a href="<?php echo base_url(); ?>/assets/img/howto_newfolder.png">
-						<div class="item">
 							<img class="img-responsive img-rounded" src="<?php echo base_url(); ?>/assets/img/howto_newfolder.png" alt="Zoomed how to create new folder">
-						</div>
 						</a>
 						<a href="<?php echo base_url(); ?>/assets/img/howto_confirmnf.png">
-						<div class="item">
 							<img class="img-responsive img-rounded" src="<?php echo base_url(); ?>/assets/img/howto_confirmnf.png" alt="Zoomed confirming folder creation">
-						</div>
 						</a>
 						<a href="<?php echo base_url(); ?>/assets/img/howto_myfolder.png">
-							<div class="item">
-								<img class="img-responsive img-rounded" src="<?php echo base_url(); ?>/assets/img/howto_myfolder.png" alt="Zoomed created folder in action">
-							</div>
+							<img class="img-responsive img-rounded" src="<?php echo base_url(); ?>/assets/img/howto_myfolder.png" alt="Zoomed created folder in action">
 						</a>
 					</div>       
                 </div>
@@ -197,13 +185,11 @@
 					</p>
 				</div>  		
 			
+				<a href="<?php echo base_url(); ?>/assets/img/howto_uploadbtn.png">
 				<div class="col-sm-6 pull-right wow fadeInRightBig"  data-animation-delay="200">   
-					<a href="<?php echo base_url(); ?>/assets/img/howto_uploadbtn.png">
-						<div class="item">
-							<img class="img-responsive img-rounded" src="<?php echo base_url(); ?>/assets/img/howto_uploadbtn.png" alt="Zoomed how to upload new files">
-						</div>
-					</a>
+					<img class="img-responsive img-rounded" src="<?php echo base_url(); ?>/assets/img/howto_uploadbtn.png" alt="Zoomed how to upload new files">
 				</div>
+				</a>
 			</div>
         </div>
     </div>
@@ -211,13 +197,11 @@
 	<div class="content-section-b"> 
 		<div class="container">
             <div class="row">
-				<div class="col-sm-6 pull-left wow fadeInLeftBig"  data-animation-delay="200">   
-					<a href="<?php echo base_url(); ?>/assets/img/howto_download.png">
-						<div class="item">
-							<img class="img-responsive img-rounded" src="<?php echo base_url(); ?>/assets/img/howto_download.png" alt="Zoomed how to download a file">
-						</div>
-					</a>
-				</div>
+				<a href="<?php echo base_url(); ?>/assets/img/howto_download.png">
+					<div class="col-sm-6 pull-left wow fadeInLeftBig"  data-animation-delay="200">   
+						<img class="img-responsive img-rounded" src="<?php echo base_url(); ?>/assets/img/howto_download.png" alt="Zoomed how to download a file">
+					</div>
+				</a>
 				
 				<div class="col-sm-6 pull-right wow fadeInRightBig"  data-animation-delay="200">   
                     <h3 class="section-heading">Download stored files</h3>
@@ -243,18 +227,16 @@
 					</p>
 				</div>  	
 				
-				<div class="col-sm-6 pull-right wow fadeInRightBig"  data-animation-delay="200">   
-					<a href="<?php echo base_url(); ?>/assets/img/howto_delete.png">
-						<div class="item">
-							<img class="img-responsive img-rounded" src="<?php echo base_url(); ?>/assets/img/howto_delete.png" alt="Zoomed how to delete a file">
-						</div>
-					</a>
-				</div>	
+				<a href="<?php echo base_url(); ?>/assets/img/howto_delete.png">
+					<div class="col-sm-6 pull-right wow fadeInRightBig"  data-animation-delay="200">   
+						<img class="img-responsive img-rounded" src="<?php echo base_url(); ?>/assets/img/howto_delete.png" alt="Zoomed how to delete a file">
+					</div>	
+				</a>
 			</div>
         </div>
     </div>
 	
-	<div  class="content-section-c ">
+	<div class="content-section-c ">
 		<div class="container">
 			<div class="row">
 			<div class="col-md-6 col-md-offset-3 text-center white">
