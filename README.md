@@ -2,6 +2,7 @@
 
 // This is the change I made to this file
 // This second line becomes a differentiator between update_readme and master branch
+// This third line is for examining pull updates
 
 Next build of SAIMemo00 with more attractive features. </br>
 
